@@ -30,14 +30,16 @@ namespace Car_Rental_System.Repository.RentRepository
                         PickUp_Date = obj.PickUp_Date,
                         DropOff_Date = obj.DropOff_Date,
                         TotalRun = obj.TotalRun,
-                        TotalAmount = obj.TotalAmount,
+                        TotalAmount = obj.Rate * obj.TotalRun,
                         Rate = obj.Rate,
                         CarId = obj.CarId,
                         DriverId = obj.DriverId,
                         CustomerName = obj.CustomerName,
                         Customer_Phone = obj.Customer_Phone,
                         Brand = obj.Car.Brand,
-                        Model = obj.Car.Model
+                        Model = obj.Car.Model,
+                        Driver_Name = obj.Driver.Driver_Name,
+                        
                 });
                     return NewRent;
                 }

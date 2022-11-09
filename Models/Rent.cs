@@ -16,6 +16,7 @@ namespace Car_Rental_System.Models
         public string Customer_Phone { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
+        public string Driver_Name { get; set; }
         public int CarId { get; set; }
         public Car Car { get; set; }
         public int DriverId { get; set; }

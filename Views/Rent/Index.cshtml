@@ -22,7 +22,8 @@
                                 <th>DropOff Date</th>
                                 <th>Brand</th>
                                 <th>Model</th>
-                                <th>Total Run</th>
+                                <th>Driver</th>
+                                <th>Total Amount</th>
                                 @*<th>Actions</th>*@
                             </tr>
                         </thead>
@@ -37,7 +38,8 @@
                                 <td>@item.DropOff_Date</td>
                                 <td>@item.Brand</td>
                                 <td>@item.Model</td>
-                                <td>@item.TotalRun</td>
+                                <td>@item.Driver_Name</td>
+                                <td>@item.TotalAmount</td>
                                 @*<td>
                                     <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
                                     <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
