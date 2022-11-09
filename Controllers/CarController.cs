@@ -65,7 +65,7 @@ namespace Car_Rental_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (obj != null)
+                if (obj.Carfile != null)
                 {
                     string folder = "Image/Car/";
                     folder += Guid.NewGuid().ToString() + "_" + obj.Carfile.FileName;

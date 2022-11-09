@@ -1,0 +1,77 @@
+﻿@using Car_Rental_System.CustomModels
+@model DriverModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <h2 class="display-4 text-center"> Delete Driver</h2>
+            <hr />
+        </div>
+        <div class="col-md-10 offset-1">
+
+            @if (ViewBag.Success)
+            {
+                <div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sorry! </strong> You have deleted a driver.
+
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+        <form method="post" enctype="multipart/form-data" asp-controller="driver" asp-action="delete">
+            <input asp-for="Id" hidden />
+            <input asp-for="ImagePath" hidden />
+
+            <div class="form-group">
+                <label asp-for="Driver_Name"></label>
+                <input disabled asp-for="Driver_Name" class="form-control" />
+                <span asp-validation-for="Driver_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age"></label>
+                <input disabled asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+                <input disabled asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile_Number"></label>
+                <input disabled asp-for="Mobile_Number" class="form-control" />
+                <span asp-validation-for="Mobile_Number" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Experience"></label>
+                <input asp-for="Experience" class="form-control" />
+                <span asp-validation-for="Experience" class="text-danger"></span>
+
+            </div>
+            <div class="btn-group">
+                <div class="form-group">
+                    <input type="reset" value="Clear" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Edit" class="btn btn-info" />
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+

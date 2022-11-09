@@ -25,46 +25,52 @@
                 </div>
             }
 
-            <form method="post" enctype="multipart/form-data" asp-controller="driver" asp-action="create">
-                <div class="form-group">
-                    <label asp-for="Driver_Name"></label>
-                    <input asp-for="Driver_Name" class="form-control" />
-                    <span asp-validation-for="Driver_Name" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Age"></label>
-                    <input asp-for="Age" class="form-control" />
-                    <span asp-validation-for="Age" class="text-danger"></span>
+        <form method="post" enctype="multipart/form-data" asp-controller="driver" asp-action="create">
+            <div class="form-group">
+                <label asp-for="Driver_Name"></label>
+                <input asp-for="Driver_Name" class="form-control" />
+                <span asp-validation-for="Driver_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
 
 
-                </div>
-                <div class="form-group">
-                    <label asp-for="Address"></label>
-                    <input asp-for="Address" class="form-control" />
-                    <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
 
 
-                </div>
-                <div class="form-group">
-                    <label asp-for="Mobile_Number"></label>
-                    <input asp-for="Mobile_Number" class="form-control" />
-                    <span asp-validation-for="Mobile_Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile_Number"></label>
+                <input asp-for="Mobile_Number" class="form-control" />
+                <span asp-validation-for="Mobile_Number" class="text-danger"></span>
 
-                </div>
-                
+            </div>
+            <div class="form-group">
+                <label asp-for="Experience"></label>
+                <input asp-for="Experience" class="form-control" />
+                <span asp-validation-for="Experience" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DriverFile" for="exampleFormControlFile1">Car Image</label>
+                <input asp-for="DriverFile" type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <div class="btn-group">
                 <div class="form-group">
-                    <label asp-for="DriverFile" for="exampleFormControlFile1">Car Image</label>
-                    <input asp-for="DriverFile" type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="reset" value="Clear" class="btn btn-primary" />
                 </div>
-                <div class="btn-group">
-                    <div class="form-group">
-                        <input type="reset" value="Clear" class="btn btn-primary" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Add" class="btn btn-info" />
-                    </div>
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-info" />
                 </div>
-            </form>
+            </div>
+        </form>
         </div>
     </div>
 </div>

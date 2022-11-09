@@ -21,6 +21,7 @@
                                 <th>Age</th>
                                 <th>Address</th>
                                 <th>Phone/Mobile</th>
+                                <th>Experience</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                     <td>@item.Age</td>
                                     <td>@item.Address</td>
                                     <td>@item.Mobile_Number</td>
+                                    <td>@item.Experience</td>
                                     <td>
                                         <a asp-route-id="@item.Id" asp-controller="Driver" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
                                         <a asp-route-id="@item.Id" asp-controller="Driver" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>

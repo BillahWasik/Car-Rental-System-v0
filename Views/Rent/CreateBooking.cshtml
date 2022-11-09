@@ -1,0 +1,114 @@
+﻿@model Rent
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <h2 class="display-4 text-center"> Booking Now</h2>
+            <hr />
+        </div>
+        <div class="col-md-10 offset-1">
+
+            @*@if (ViewBag.Success)
+            {
+                <div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Congratulations! </strong> You have added a Booking.
+
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }*@
+
+            <form method="post" asp-controller="rent" asp-action="createbooking">
+                <div class="form-group">
+                    <label asp-for="PickUp"></label>
+                    <input asp-for="PickUp" class="form-control" />
+                    <span asp-validation-for="PickUp" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DropOff"></label>
+                    <input asp-for="DropOff" class="form-control" />
+                    <span asp-validation-for="DropOff" class="text-danger"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="PickUp_Date"></label>
+                    <input asp-for="PickUp_Date" class="form-control" />
+                    <span asp-validation-for="PickUp_Date" class="text-danger"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="DropOff_Date"></label>
+                    <input asp-for="DropOff_Date" class="form-control" />
+                    <span asp-validation-for="DropOff_Date" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="TotalRun"></label>
+                    <input asp-for="TotalRun" class="form-control" />
+                    <span asp-validation-for="TotalRun" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Rate"></label>
+                    <input asp-for="Rate" class="form-control" />
+                    <span asp-validation-for="Rate" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="CarId"></label>
+                    <select class="dropdown-item" asp-for="CarId" asp-items="ViewBag.Brand">
+                        <option value="">--Select the Brand--</option>
+                    </select>
+                    <span asp-validation-for="CarId" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="CarId"></label>
+                    <select class="dropdown-item" asp-for="CarId" asp-items="ViewBag.Model">
+                        <option value="">--Select the Model--</option>
+                    </select>
+                    <span asp-validation-for="CarId" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="DriverId"></label>
+                    <select class="dropdown-item" asp-for="DriverId" asp-items="ViewBag.Driver">
+                        <option value="">--Select the Driver--</option>
+                    </select>
+                    <span asp-validation-for="DriverId" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="CustomerName"></label>
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Customer_Phone"></label>
+                    <input asp-for="Customer_Phone" class="form-control" />
+                    <span asp-validation-for="Customer_Phone" class="text-danger"></span>
+
+                </div>
+
+                <div class="btn-group">
+                    <div class="form-group">
+                        <input type="reset" value="Clear" class="btn btn-primary" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Add" class="btn btn-info" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

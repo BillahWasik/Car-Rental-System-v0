@@ -50,74 +50,74 @@ namespace Car_Rental_System.Controllers
             return View();
         }
 
-        //public IActionResult Edit(int id, bool IsSuccess = false)
-        //{
-        //    var data = _db.GetDetails(id);
-        //    ViewBag.Success = IsSuccess;
-        //    return View(data);
-        //}
-        //[HttpPost]
-        //public IActionResult Edit(CarModel obj)
+        public IActionResult Edit(int id, bool IsSuccess = false)
+        {
+            var data = _db.GetDetails(id);
+            ViewBag.Success = IsSuccess;
+            return View(data);
+        }
+        [HttpPost]
+        public IActionResult Edit(DriverModel obj)
 
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (obj != null)
-        //        {
-        //            string folder = "Image/Car/";
-        //            folder += Guid.NewGuid().ToString() + "_" + obj.Carfile.FileName;
+        {
+            if (ModelState.IsValid)
+            {
+                if (obj.DriverFile != null)
+                {
+                    string folder = "Image/Driver/";
+                    folder += Guid.NewGuid().ToString() + "_" + obj.DriverFile.FileName;
 
-        //            string serverfolder = Path.Combine(_env.WebRootPath, folder);
+                    string serverfolder = Path.Combine(_env.WebRootPath, folder);
 
-        //            if (obj.ImagePath != null)
-        //            {
-        //                var oldPath = Path.Combine(_env.WebRootPath, obj.ImagePath);
+                    if (obj.ImagePath != null)
+                    {
+                        var oldPath = Path.Combine(_env.WebRootPath, obj.ImagePath);
 
-        //                if (System.IO.File.Exists(oldPath))
-        //                {
-        //                    System.IO.File.Delete(oldPath);
-        //                }
-        //            }
+                        if (System.IO.File.Exists(oldPath))
+                        {
+                            System.IO.File.Delete(oldPath);
+                        }
+                    }
 
-        //            obj.Carfile.CopyTo(new FileStream(serverfolder, FileMode.Create));
+                    obj.DriverFile.CopyTo(new FileStream(serverfolder, FileMode.Create));
 
-        //            obj.ImagePath = folder;
-        //        }
-        //        _db.EditCar(obj);
-        //        return RedirectToAction(nameof(Edit), new { IsSuccess = true });
-        //    }
-        //    return View();
-        //}
+                    obj.ImagePath = folder;
+                }
+                _db.EditDriver(obj);
+                return RedirectToAction(nameof(Edit), new { IsSuccess = true });
+            }
+            return View();
+        }
 
-        //public IActionResult Delete(int id, bool IsSuccess = false)
-        //{
-        //    var data = _db.GetDetails(id);
-        //    ViewBag.Success = IsSuccess;
-        //    return View(data);
-        //}
-        //[HttpPost]
-        //public IActionResult Delete(CarModel obj)
+        public IActionResult Delete(int id, bool IsSuccess = false)
+        {
+            var data = _db.GetDetails(id);
+            ViewBag.Success = IsSuccess;
+            return View(data);
+        }
+        [HttpPost]
+        public IActionResult Delete(DriverModel obj)
 
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (obj != null)
-        //        {
+        {
+            if (ModelState.IsValid)
+            {
+                if (obj != null)
+                {
 
-        //            if (obj.ImagePath != null)
-        //            {
-        //                var oldPath = Path.Combine(_env.WebRootPath, obj.ImagePath);
+                    if (obj.ImagePath != null)
+                    {
+                        var oldPath = Path.Combine(_env.WebRootPath, obj.ImagePath);
 
-        //                if (System.IO.File.Exists(oldPath))
-        //                {
-        //                    System.IO.File.Delete(oldPath);
-        //                }
-        //            }
-        //        }
-        //        _db.DeleteCar(obj);
-        //        return RedirectToAction(nameof(Edit), new { IsSuccess = true });
-        //    }
-        //    return View();
-        //}
+                        if (System.IO.File.Exists(oldPath))
+                        {
+                            System.IO.File.Delete(oldPath);
+                        }
+                    }
+                }
+                _db.DeleteDriver(obj);
+                return RedirectToAction(nameof(Edit), new { IsSuccess = true });
+            }
+            return View();
+        }
     }
 }

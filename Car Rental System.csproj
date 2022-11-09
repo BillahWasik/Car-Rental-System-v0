@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\RentRepository\" />
     <Folder Include="wwwroot\Image\Car\" />
     <Folder Include="wwwroot\Image\Driver\" />
   </ItemGroup>

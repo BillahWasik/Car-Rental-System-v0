@@ -1,6 +1,7 @@
 using Car_Rental_System.Data;
 using Car_Rental_System.Repository.CarRepository;
 using Car_Rental_System.Repository.DriverRepository;
+using Car_Rental_System.Repository.RentRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +31,7 @@ namespace Car_Rental_System
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Con")));
             services.AddScoped<ICarRepository,CarRepository>();
             services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
