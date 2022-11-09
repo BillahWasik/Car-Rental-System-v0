@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Car>
+﻿@using Car_Rental_System.CustomModels
+@model IEnumerable<CarModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,7 +13,7 @@
                     <a asp-controller="Car" asp-action="Create" class="btn btn-outline-primary rounded">Add New Car</a>
                 </div>
                 <div class="p-3">
-                    <table class="table table-responsive table-bordered text-info text-center">
+                    <table class="table table-bordered text-info text-center">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -23,6 +24,7 @@
                                 <th>Fuel Type</th>
                                 <th>Passing Year</th>
                                 <th>Car Number</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +39,10 @@
                                     <td>@item.Fuel_Type</td>
                                     <td>@item.Passing_Year</td>
                                     <td>@item.Car_Number</td>
-                                    <td></td>
+                                    <td>
+                                        <a asp-route-id="@item.Id" asp-controller="Car" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
+                                        <a asp-route-id="@item.Id" asp-controller="Car" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>

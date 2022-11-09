@@ -1,7 +1,51 @@
-﻿
+﻿@using Car_Rental_System.CustomModels
+@model IEnumerable<DriverModel>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-3 p-3 shadow rounded">
+                <div class="d-flex justify-content-between mb-3 p-3">
+                    <h3 class="text-info">Driver List</h3>
+                    <a asp-controller="Driver" asp-action="Create" class="btn btn-outline-primary rounded">Add New Driver</a>
+                </div>
+                <div class="p-3">
+                    <table class="table table-bordered text-info text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Address</th>
+                                <th>Phone/Mobile</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Driver_Name</td>
+                                    <td>@item.Age</td>
+                                    <td>@item.Address</td>
+                                    <td>@item.Mobile_Number</td>
+                                    <td>
+                                        <a asp-route-id="@item.Id" asp-controller="Driver" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
+                                        <a asp-route-id="@item.Id" asp-controller="Driver" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 

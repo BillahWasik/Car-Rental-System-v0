@@ -1,0 +1,93 @@
+﻿@using Car_Rental_System.CustomModels
+@model CarModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <h2 class="display-4 text-center"> Delete Car</h2>
+            <hr />
+        </div>
+        <div class="col-md-10 offset-1">
+
+            @if (ViewBag.Success)
+            {
+                <div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Sorry! </strong> You have deleted a car.
+
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            <form method="post" enctype="multipart/form-data" asp-controller="car" asp-action="delete">
+                <input asp-for="Id" hidden />
+                <input asp-for="ImagePath" hidden />
+
+                <div class="form-group">
+                    <label asp-for="Brand"></label>
+                    <input disabled asp-for="Brand" class="form-control" />
+                    <span asp-validation-for="Brand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Model"></label>
+                    <input disabled asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Engine"></label>
+                    <input disabled asp-for="Engine" class="form-control" />
+                    <span asp-validation-for="Engine" class="text-danger"></span>
+
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seating_Capacity"></label>
+                    <input disabled asp-for="Seating_Capacity" class="form-control" />
+                    <span asp-validation-for="Seating_Capacity" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Car_Number"></label>
+                    <input disabled asp-for="Car_Number" class="form-control" />
+                    <span asp-validation-for="Car_Number" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fuel_Type"></label>
+                    <select disabled asp-for="Fuel_Type" class="dropdown-item">
+                        <option value="">--Select Fuel Type--</option>
+                        <option value="Octane">Octane</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
+
+                    </select>
+                    <span asp-validation-for="Fuel_Type" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Passing_Year"></label>
+                    <input disabled asp-for="Passing_Year" class="form-control" />
+                    <span asp-validation-for="Passing_Year" class="text-danger"></span>
+
+                </div>
+                <div class="btn-group">
+                    <div class="form-group">
+                        <input type="reset" value="Clear" class="btn btn-primary" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Delete" class="btn btn-info" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

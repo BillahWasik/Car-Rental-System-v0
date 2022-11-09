@@ -19,8 +19,8 @@
 
   <ItemGroup>
     <Folder Include="Repository\RentRepository\" />
-    <Folder Include="Repository\DriverRepository\" />
     <Folder Include="wwwroot\Image\Car\" />
+    <Folder Include="wwwroot\Image\Driver\" />
   </ItemGroup>
 
 </Project>
