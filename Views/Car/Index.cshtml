@@ -1,4 +1,4 @@
-﻿@model Car
+﻿@model IEnumerable<Car>
 @{
     ViewData["Title"] = "Index";
 }
@@ -26,17 +26,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>@Model.Id</td>
-                                <td>@Model.Brand</td>
-                                <td>@Model.Model</td>
-                                <td>@Model.Seating_Capacity</td>
-                                <td>@Model.Engine</td>
-                                <td>@Model.Fuel_Type</td>
-                                <td>@Model.Passing_Year</td>
-                                <td>@Model.Car_Number</td>
-                                <td></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Brand</td>
+                                    <td>@item.Model</td>
+                                    <td>@item.Seating_Capacity</td>
+                                    <td>@item.Engine</td>
+                                    <td>@item.Fuel_Type</td>
+                                    <td>@item.Passing_Year</td>
+                                    <td>@item.Car_Number</td>
+                                    <td></td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>               

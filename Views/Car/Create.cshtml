@@ -1,4 +1,5 @@
-﻿@model Car
+﻿@using Car_Rental_System.ViewModel
+@model CarVM
 @{
     ViewData["Title"] = "Create";
 }
@@ -26,58 +27,58 @@
 
             <form method="post" enctype="multipart/form-data" asp-controller="car" asp-action="create">
                 <div class="form-group">
-                    <label asp-for="Brand"></label>
-                    <input asp-for="Brand" class="form-control" />
-                    <span asp-validation-for="Brand" class="text-danger"></span>
+                    <label asp-for="Car.Brand"></label>
+                    <input asp-for="Car.Brand" class="form-control" />
+                    <span asp-validation-for="Car.Brand" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Model"></label>
-                    <input asp-for="Model" class="form-control" />
-                    <span asp-validation-for="Model" class="text-danger"></span>
-
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Engine"></label>
-                    <input asp-for="Engine" class="form-control" />
-                    <span asp-validation-for="Engine" class="text-danger"></span>
+                    <label asp-for="Car.Model"></label>
+                    <input asp-for="Car.Model" class="form-control" />
+                    <span asp-validation-for="Car.Model" class="text-danger"></span>
 
 
                 </div>
                 <div class="form-group">
-                    <label asp-for="Seating_Capacity"></label>
-                    <input asp-for="Seating_Capacity" class="form-control" />
-                    <span asp-validation-for="Seating_Capacity" class="text-danger"></span>
+                    <label asp-for="Car.Engine"></label>
+                    <input asp-for="Car.Engine" class="form-control" />
+                    <span asp-validation-for="Car.Engine" class="text-danger"></span>
+
 
                 </div>
                 <div class="form-group">
-                    <label asp-for="Car_Number"></label>
-                    <input asp-for="Car_Number" class="form-control" />
-                    <span asp-validation-for="Car_Number" class="text-danger"></span>
+                    <label asp-for="Car.Seating_Capacity"></label>
+                    <input asp-for="Car.Seating_Capacity" class="form-control" />
+                    <span asp-validation-for="Car.Seating_Capacity" class="text-danger"></span>
 
                 </div>
                 <div class="form-group">
-                    <label asp-for="Fuel_Type"></label>
-                    <select asp-for="Fuel_Type" class="dropdown-item">
+                    <label asp-for="Car.Car_Number"></label>
+                    <input asp-for="Car.Car_Number" class="form-control" />
+                    <span asp-validation-for="Car.Car_Number" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="Car.Fuel_Type"></label>
+                    <select asp-for="Car.Fuel_Type" class="dropdown-item">
                         <option value="">--Select Fuel Type--</option>
-                        <option value="">Octane</option>
-                        <option value="">Diesel</option>
-                        <option value="">Petrol</option>
+                        <option value="Octane">Octane</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Petrol">Petrol</option>
 
                     </select>
-                    <span asp-validation-for="Fuel_Type" class="text-danger"></span>
+                    <span asp-validation-for="Car.Fuel_Type" class="text-danger"></span>
 
                 </div>
                 <div class="form-group">
-                    <label asp-for="Passing_Year"></label>
-                    <input asp-for="Passing_Year" class="form-control" />
-                    <span asp-validation-for="Passing_Year" class="text-danger"></span>
+                    <label asp-for="Car.Passing_Year"></label>
+                    <input asp-for="Car.Passing_Year" class="form-control" />
+                    <span asp-validation-for="Car.Passing_Year" class="text-danger"></span>
 
                 </div>
                 <div class="form-group">
                     <div class="custom-file">
-                        <input type="file" asp-for="ImagePath" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" asp-for="ImagePath">Choose File</label>
+                        <input type="file" asp-for="Carfile" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" asp-for="Carfile">Choose File</label>
                     </div>
                 </div>
                 <div class="btn-group">

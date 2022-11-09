@@ -1,5 +1,6 @@
 ﻿using Car_Rental_System.Models;
 using Car_Rental_System.Repository.CarRepository;
+using Car_Rental_System.ViewModel;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,27 +21,28 @@ namespace Car_Rental_System.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+           var data =  _db.GetAllCar();
+            return View(data);
         }
         public IActionResult Create() 
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Car obj, IFormFile file)
+        public IActionResult Create(CarVM obj)
         {
             if (ModelState.IsValid)
             {
                 if (obj != null)
                 {
-                    string folder = "Image/Car";
-                    folder += Guid.NewGuid().ToString() + "_" + file.FileName;
+                    string folder = "Image/Car/";
+                    folder += Guid.NewGuid().ToString() + "_" + obj.Carfile.FileName;
 
                     string serverfolder = Path.Combine(_env.WebRootPath, folder);
 
-                    file.CopyTo(new FileStream(serverfolder, FileMode.Create));
+                    obj.Carfile.CopyTo(new FileStream(serverfolder, FileMode.Create));
 
-                    obj.ImagePath = folder;
+                    obj.Car.ImagePath = folder;
                 }
                 _db.AddNewCar(obj);
                 RedirectToAction("Index");

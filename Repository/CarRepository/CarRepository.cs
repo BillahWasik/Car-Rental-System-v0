@@ -1,5 +1,6 @@
 ﻿using Car_Rental_System.Data;
 using Car_Rental_System.Models;
+using Car_Rental_System.ViewModel;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,9 +20,22 @@ namespace Car_Rental_System.Repository.CarRepository
             var data = _db.Cars.ToList();
             return data;
         }
-        public Car AddNewCar(Car obj)
+        public CarVM AddNewCar(CarVM obj)
         {
-            _db.Cars.Add(obj);
+            var NewCar = new Car()
+            {
+                Id = obj.Car.Id,
+                Brand = obj.Car.Brand,
+                Model = obj.Car.Model,
+                Engine = obj.Car.Engine,
+                ImagePath = obj.Car.ImagePath,
+                Car_Number = obj.Car.Car_Number,
+                Fuel_Type = obj.Car.Fuel_Type,
+                Passing_Year = obj.Car.Passing_Year,
+                Seating_Capacity = obj.Car.Seating_Capacity
+            };
+
+            _db.Cars.Add(NewCar);
             _db.SaveChanges();
             return obj;
         }
