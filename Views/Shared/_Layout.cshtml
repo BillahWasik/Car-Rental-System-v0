@@ -6,6 +6,11 @@
     <title>@ViewData["Title"] - Car Rental System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="~/css/sidebar.css">
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <partial name="_Navbar" />
@@ -16,12 +21,14 @@
         </main>
     </div>
 
-   <partial name="_Footer" />
+    <partial name="_Footer" />
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/main.js"></script>
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
