@@ -34,6 +34,7 @@ namespace Car_Rental_System.Controllers
            var data = _db.GetAllRent().ToList();
             return View(data);
         }
+        [Authorize]
         public IActionResult CreateBooking()
         {
             ViewBag.Brand = new SelectList(DropdownDataCar(),"Id","Brand");

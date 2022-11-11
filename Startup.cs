@@ -66,6 +66,8 @@ namespace Car_Rental_System
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -7,6 +7,7 @@ namespace Car_Rental_System.Repository.AccountRepository
     public interface IAccountRepository
     {
         Task<IdentityResult> CreateUserAsync(Registration user);
-        Task<SignInResult> SignInUser(SignIn user);
+        Task<SignInResult> SignInUserAsync(SignIn user);
+        Task SignOutAsync();
     }
 }

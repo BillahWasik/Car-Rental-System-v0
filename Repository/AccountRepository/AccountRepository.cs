@@ -17,11 +17,11 @@ namespace Car_Rental_System.Repository.AccountRepository
 
         public async Task<IdentityResult> CreateUserAsync(Registration user)
         {
-            var data = new CustomizeUser
+            var data = new CustomizeUser()
             {
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                UserName = user.Username,
+                UserName = user.Email,
                 Email = user.Email,
 
             };
@@ -29,10 +29,14 @@ namespace Car_Rental_System.Repository.AccountRepository
             return result;
         }
 
-        public async Task<SignInResult> SignInUser(SignIn user) 
+        public async Task<SignInResult> SignInUserAsync(SignIn user) 
         {
-           var data = await _signInManager.PasswordSignInAsync(user.Email, user.Password , false , false);
-            return data;
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, user.RememberMe, false);
+            return result;
+        }
+        public async Task SignOutAsync() 
+        {
+           await _signInManager.SignOutAsync();
         }
     }
 

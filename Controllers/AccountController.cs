@@ -45,15 +45,21 @@ namespace Car_Rental_System.Controllers
         {
             if (ModelState.IsValid) 
             {
-               var result = await _db.SignInUser(obj);
-                if (!result.Succeeded) 
+                var result = await _db.SignInUserAsync(obj);
+                if (result.Succeeded) 
                 {
-                    ModelState.AddModelError("", "Login Failed");
+                    return RedirectToAction("Index", "Home");
+                    
                 }
-                return RedirectToAction("Index","Home");
+                ModelState.AddModelError("", "Login Failed");
             }
             return View(obj);
         }
 
+        public async Task<IActionResult> LogOut() 
+        {
+            await _db.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
