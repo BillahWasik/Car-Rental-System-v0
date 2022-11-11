@@ -41,13 +41,17 @@ namespace Car_Rental_System.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(SignIn obj)
+        public async Task<IActionResult> Login(SignIn obj, string returnUrl)
         {
             if (ModelState.IsValid) 
             {
                 var result = await _db.SignInUserAsync(obj);
                 if (result.Succeeded) 
                 {
+                    if (!string.IsNullOrEmpty(returnUrl)) 
+                    {
+                        return LocalRedirect(returnUrl);
+                    }
                     return RedirectToAction("Index", "Home");
                     
                 }
