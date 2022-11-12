@@ -1,4 +1,5 @@
 ﻿using Car_Rental_System.Models;
+using Car_Rental_System.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,21 @@ namespace Car_Rental_System.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IUserService userService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IUserService _userService)
         {
             _logger = logger;
+            userService = _userService;
         }
 
         public IActionResult Index()
         {
+           var data = userService.GetUserId();
+            var auth = userService.IsAuthenticated();
+
+            //var LoggedIn = userService.LoggedInUser();
+
             return View();
         }
 

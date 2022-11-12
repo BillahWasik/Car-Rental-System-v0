@@ -5,6 +5,7 @@ using Car_Rental_System.Repository.AccountRepository;
 using Car_Rental_System.Repository.CarRepository;
 using Car_Rental_System.Repository.DriverRepository;
 using Car_Rental_System.Repository.RentRepository;
+using Car_Rental_System.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -39,6 +40,7 @@ namespace Car_Rental_System
             services.AddScoped<IRentRepository, RentRepository>();
             services.AddIdentity<CustomizeUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUserClaimsPrincipalFactory<CustomizeUser>, ApplicationUserClaimPrincipalFactory>();
+            services.AddScoped<IUserService, UserService>();
 
             services.Configure<IdentityOptions>(options =>
             {

@@ -33,6 +33,7 @@ namespace Car_Rental_System.Controllers
                         ModelState.AddModelError("", item.Description);
                     }
                 }
+                return RedirectToAction(nameof(Index));
             }
             return View();
         }
@@ -64,6 +65,30 @@ namespace Car_Rental_System.Controllers
         {
             await _db.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        public IActionResult PasswordChange()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordChange(PasswordChange obj)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _db.ChangePassword(obj);
+                if (result.Succeeded) 
+                {
+                    ViewBag.IsSuccess = true;
+                    ModelState.Clear();
+                    return View();
+                }
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+            }
+            return View();
         }
     }
 }

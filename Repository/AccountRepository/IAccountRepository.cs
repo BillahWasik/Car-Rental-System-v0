@@ -9,5 +9,6 @@ namespace Car_Rental_System.Repository.AccountRepository
         Task<IdentityResult> CreateUserAsync(Registration user);
         Task<SignInResult> SignInUserAsync(SignIn user);
         Task SignOutAsync();
+        Task<IdentityResult> ChangePassword(PasswordChange obj);
     }
 }
