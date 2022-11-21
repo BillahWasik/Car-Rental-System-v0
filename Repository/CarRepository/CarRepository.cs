@@ -31,12 +31,13 @@ namespace Car_Rental_System.Repository.CarRepository
                         Id = item.Id,
                         Brand = item.Brand,
                         Model = item.Model,
-                        Car_Number = item.Car_Number,
-                        Engine = item.Engine,
+                        Registration_Number = item.Registration_Number,
                         Fuel_Type = item.Fuel_Type,
                         ImagePath = item.ImagePath,
-                        Passing_Year = item.Passing_Year,
+                        Registration_Year = item.Registration_Year,
                         Seating_Capacity = item.Seating_Capacity,
+                        AddedDate = item.AddedDate,
+                        DailyHirePrice = item.DailyHirePrice,
                     });
                 }
                
@@ -50,12 +51,13 @@ namespace Car_Rental_System.Repository.CarRepository
                 Id = obj.Id,
                 Brand = obj.Brand,
                 Model = obj.Model,
-                Engine = obj.Engine,
-                ImagePath = obj.ImagePath,
-                Car_Number = obj.Car_Number,
+                Registration_Number = obj.Registration_Number,
                 Fuel_Type = obj.Fuel_Type,
-                Passing_Year = obj.Passing_Year,
-                Seating_Capacity = obj.Seating_Capacity
+                ImagePath = obj.ImagePath,
+                Registration_Year = obj.Registration_Year,
+                Seating_Capacity = obj.Seating_Capacity,
+                AddedDate = obj.AddedDate,
+                DailyHirePrice = obj.DailyHirePrice,
             };
 
             _db.Cars.Add(NewCar);
@@ -70,12 +72,13 @@ namespace Car_Rental_System.Repository.CarRepository
                 Id = obj.Id,
                 Brand = obj.Brand,
                 Model = obj.Model,
-                Engine = obj.Engine,
-                ImagePath = obj.ImagePath,
-                Car_Number = obj.Car_Number,
+                Registration_Number = obj.Registration_Number,
                 Fuel_Type = obj.Fuel_Type,
-                Passing_Year = obj.Passing_Year,
-                Seating_Capacity = obj.Seating_Capacity
+                ImagePath = obj.ImagePath,
+                Registration_Year = obj.Registration_Year,
+                Seating_Capacity = obj.Seating_Capacity,
+                AddedDate = obj.AddedDate,
+                DailyHirePrice = obj.DailyHirePrice,
             };
 
             _db.Cars.Update(NewCar);
@@ -93,12 +96,13 @@ namespace Car_Rental_System.Repository.CarRepository
                     Id = obj.Id,
                     Brand = obj.Brand,
                     Model = obj.Model,
-                    Engine = obj.Engine,
-                    ImagePath = obj.ImagePath,
-                    Car_Number = obj.Car_Number,
+                    Registration_Number = obj.Registration_Number,
                     Fuel_Type = obj.Fuel_Type,
-                    Passing_Year = obj.Passing_Year,
-                    Seating_Capacity = obj.Seating_Capacity
+                    ImagePath = obj.ImagePath,
+                    Registration_Year = obj.Registration_Year,
+                    Seating_Capacity = obj.Seating_Capacity,
+                    AddedDate = obj.AddedDate,
+                    DailyHirePrice = obj.DailyHirePrice,
 
                 };
                 return CarDetails;
@@ -112,12 +116,13 @@ namespace Car_Rental_System.Repository.CarRepository
                 Id = obj.Id,
                 Brand = obj.Brand,
                 Model = obj.Model,
-                Engine = obj.Engine,
-                ImagePath = obj.ImagePath,
-                Car_Number = obj.Car_Number,
+                Registration_Number = obj.Registration_Number,
                 Fuel_Type = obj.Fuel_Type,
-                Passing_Year = obj.Passing_Year,
-                Seating_Capacity = obj.Seating_Capacity
+                ImagePath = obj.ImagePath,
+                Registration_Year = obj.Registration_Year,
+                Seating_Capacity = obj.Seating_Capacity,
+                AddedDate = obj.AddedDate,
+                DailyHirePrice = obj.DailyHirePrice,
             };
 
             _db.Cars.Remove(NewCar);

@@ -97,14 +97,14 @@ namespace Car_Rental_System.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Brand")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Car_Number")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Engine")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DailyHirePrice")
+                        .HasColumnType("int");
 
                     b.Property<string>("Fuel_Type")
                         .HasColumnType("nvarchar(max)");
@@ -115,7 +115,10 @@ namespace Car_Rental_System.Migrations
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Passing_Year")
+                    b.Property<string>("Registration_Number")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Registration_Year")
                         .HasColumnType("int");
 
                     b.Property<int>("Seating_Capacity")
@@ -133,17 +136,20 @@ namespace Car_Rental_System.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Age")
                         .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Driver_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Experience")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Driving_Year")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");

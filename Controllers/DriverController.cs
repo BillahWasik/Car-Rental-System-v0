@@ -23,7 +23,6 @@ namespace Car_Rental_System.Controllers
             var data = _db.GetAllDriver();
             return View(data);
         }
-        [Authorize]
         public IActionResult Create(bool IsSuccess = false)
         {
             ViewBag.Success = IsSuccess;
@@ -51,8 +50,6 @@ namespace Car_Rental_System.Controllers
             }
             return View();
         }
-
-        [Authorize]
         public IActionResult Edit(int id, bool IsSuccess = false)
         {
             var data = _db.GetDetails(id);
@@ -91,8 +88,6 @@ namespace Car_Rental_System.Controllers
             }
             return View();
         }
-
-        [Authorize]
         public IActionResult Delete(int id, bool IsSuccess = false)
         {
             var data = _db.GetDetails(id);

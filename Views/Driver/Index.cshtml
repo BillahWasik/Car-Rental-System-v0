@@ -16,12 +16,13 @@
                     <table class="table table-bordered text-info text-center">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Name</th>
                                 <th>Age</th>
-                                <th>Address</th>
+                                <th>City</th>
+                                <th>District</th>
+                                <th>Driving Year</th>
                                 <th>Phone/Mobile</th>
-                                <th>Experience</th>
+                                <th>Experience(Years)</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -29,10 +30,11 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.Id</td>
                                     <td>@item.Driver_Name</td>
                                     <td>@item.Age</td>
-                                    <td>@item.Address</td>
+                                    <td>@item.City</td>
+                                    <td>@item.District</td>
+                                    <td>@item.Driving_Year</td>
                                     <td>@item.Mobile_Number</td>
                                     <td>@item.Experience</td>
                                     <td>

@@ -25,72 +25,78 @@
                 </div>
             }
 
-            <form method="post" enctype="multipart/form-data" asp-controller="car" asp-action="edit">
-                <input asp-for="Id" hidden />
-                <input asp-for="ImagePath" hidden />
+        <form method="post" enctype="multipart/form-data" asp-controller="car" asp-action="edit">
+            <input asp-for="Id" hidden />
+            <input asp-for="ImagePath" hidden />
 
+            <div class="form-group">
+                <label asp-for="Brand"></label>
+                <input asp-for="Brand" class="form-control" />
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration_Number"></label>
+                <input asp-for="Registration_Number" class="form-control" />
+                <span asp-validation-for="Registration_Number" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Seating_Capacity"></label>
+                <input asp-for="Seating_Capacity" class="form-control" />
+                <span asp-validation-for="Seating_Capacity" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Registration_Year"></label>
+                <input asp-for="Registration_Year" class="form-control" />
+                <span asp-validation-for="Registration_Year" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Fuel_Type"></label>
+                <select asp-for="Fuel_Type" class="dropdown-item">
+                    <option value="">--Select Fuel Type--</option>
+                    <option value="Octane">Octane</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Petrol">Petrol</option>
+
+                </select>
+                <span asp-validation-for="Fuel_Type" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="DailyHirePrice"></label>
+                <input asp-for="DailyHirePrice" class="form-control" />
+                <span asp-validation-for="DailyHirePrice" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="AddedDate"></label>
+                <input asp-for="AddedDate" class="form-control" />
+                <span asp-validation-for="AddedDate" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Carfile" for="exampleFormControlFile1">Car Image</label>
+                <input asp-for="Carfile" type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+            <div class="btn-group">
                 <div class="form-group">
-                    <label asp-for="Brand"></label>
-                    <input asp-for="Brand" class="form-control" />
-                    <span asp-validation-for="Brand" class="text-danger"></span>
+                    <input type="reset" value="Clear" class="btn btn-primary" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Model"></label>
-                    <input asp-for="Model" class="form-control" />
-                    <span asp-validation-for="Model" class="text-danger"></span>
-
-
+                    <input type="submit" value="Add" class="btn btn-info" />
                 </div>
-                <div class="form-group">
-                    <label asp-for="Engine"></label>
-                    <input asp-for="Engine" class="form-control" />
-                    <span asp-validation-for="Engine" class="text-danger"></span>
-
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Seating_Capacity"></label>
-                    <input asp-for="Seating_Capacity" class="form-control" />
-                    <span asp-validation-for="Seating_Capacity" class="text-danger"></span>
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Car_Number"></label>
-                    <input asp-for="Car_Number" class="form-control" />
-                    <span asp-validation-for="Car_Number" class="text-danger"></span>
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Fuel_Type"></label>
-                    <select asp-for="Fuel_Type" class="dropdown-item">
-                        <option value="">--Select Fuel Type--</option>
-                        <option value="Octane">Octane</option>
-                        <option value="Diesel">Diesel</option>
-                        <option value="Petrol">Petrol</option>
-
-                    </select>
-                    <span asp-validation-for="Fuel_Type" class="text-danger"></span>
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Passing_Year"></label>
-                    <input asp-for="Passing_Year" class="form-control" />
-                    <span asp-validation-for="Passing_Year" class="text-danger"></span>
-
-                </div>
-                <div class="form-group">
-                    <label asp-for="Carfile" for="exampleFormControlFile1">Car Image</label>
-                    <input asp-for="Carfile" type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-                <div class="btn-group">
-                    <div class="form-group">
-                        <input type="reset" value="Clear" class="btn btn-primary" />
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Edit" class="btn btn-info" />
-                    </div>
-                </div>
-            </form>
+            </div>
+        </form>
         </div>
     </div>
 </div>

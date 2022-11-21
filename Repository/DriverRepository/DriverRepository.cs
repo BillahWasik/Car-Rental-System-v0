@@ -27,14 +27,15 @@ namespace Car_Rental_System.Repository.DriverRepository
                 {
                     Driver.Add(new DriverModel
                     {
-                        Address = item.Address,
+                        City = item.City,
+                        District = item.District,
                         Age = item.Age,
                         Driver_Name = item.Driver_Name,
-                        Experience = item.Experience,
+                        Driving_Year = item.Driving_Year,
                         Id = item.Id,
                         ImagePath = item.ImagePath,
                         Mobile_Number = item.Mobile_Number,
-                    });
+                    }); ;
                 }
 
             }
@@ -44,10 +45,11 @@ namespace Car_Rental_System.Repository.DriverRepository
         {
             var NewDriver = new Driver()
             {
-                Address = obj.Address,
+                City = obj.City,
+                District = obj.District,
+                Driving_Year = obj.Driving_Year,
                 Age = obj.Age,
                 Driver_Name = obj.Driver_Name,
-                Experience = obj.Experience,
                 Id = obj.Id,
                 ImagePath = obj.ImagePath,
                 Mobile_Number = obj.Mobile_Number,
@@ -62,10 +64,11 @@ namespace Car_Rental_System.Repository.DriverRepository
         {
             var NewCar = new Driver()
             {
-                Address = obj.Address,
+                City = obj.City,
+                District = obj.District,
                 Age = obj.Age,
                 Driver_Name = obj.Driver_Name,
-                Experience = obj.Experience,
+                Driving_Year=obj.Driving_Year,
                 Id = obj.Id,
                 ImagePath = obj.ImagePath,
                 Mobile_Number = obj.Mobile_Number,
@@ -84,10 +87,11 @@ namespace Car_Rental_System.Repository.DriverRepository
                 var DrivrDetails = new DriverModel()
                 {
 
-                    Address = obj.Address,
+                    City = obj.City,
+                    District = obj.District,
                     Age = obj.Age,
                     Driver_Name = obj.Driver_Name,
-                    Experience = obj.Experience,
+                    Driving_Year = obj.Driving_Year,
                     Id = obj.Id,
                     ImagePath = obj.ImagePath,
                     Mobile_Number = obj.Mobile_Number,
@@ -101,10 +105,11 @@ namespace Car_Rental_System.Repository.DriverRepository
         {
             var NewDriver = new Driver()
             {
-                Address = obj.Address,
+                City = obj.City,
+                District = obj.District,
                 Age = obj.Age,
                 Driver_Name = obj.Driver_Name,
-                Experience = obj.Experience,
+                Driving_Year = obj.Driving_Year,
                 Id = obj.Id,
                 ImagePath = obj.ImagePath,
                 Mobile_Number = obj.Mobile_Number,

@@ -1,13 +1,10 @@
 ﻿using Car_Rental_System.CustomModels;
-using Car_Rental_System.Models;
 using Car_Rental_System.Repository.CarRepository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
-using System.Linq;
 
 namespace Car_Rental_System.Controllers
 {
@@ -15,6 +12,7 @@ namespace Car_Rental_System.Controllers
     {
         private readonly IWebHostEnvironment _env;
         private readonly ICarRepository _db;
+       
 
         public CarController(IWebHostEnvironment _env, ICarRepository _db)
         {
@@ -26,7 +24,7 @@ namespace Car_Rental_System.Controllers
            var data =  _db.GetAllCar();
             return View(data);
         }
-        [Authorize] 
+
         public IActionResult Create(bool IsSuccess = false) 
         {
             ViewBag.Success = IsSuccess;
@@ -55,7 +53,6 @@ namespace Car_Rental_System.Controllers
             return View();
         }
 
-        [Authorize]
         public IActionResult Edit(int id , bool IsSuccess = false)
         {
             var data = _db.GetDetails(id);
@@ -94,8 +91,6 @@ namespace Car_Rental_System.Controllers
             }
             return View();
         }
-
-        [Authorize]
         public IActionResult Delete(int id, bool IsSuccess = false)
         {
             var data = _db.GetDetails(id);

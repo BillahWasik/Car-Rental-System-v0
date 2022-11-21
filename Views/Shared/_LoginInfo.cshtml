@@ -15,9 +15,16 @@
 }
 else
 {
+    <div class="d-flex align-items-center">
+        <div class="mr-2">
+            <a class="btn btn-outline-info" asp-area="" asp-controller="Account" asp-action="login" asp-route-returnUrl="@Context.Request.Path">Login</a>
+        </div>
+               
+        <div>
+            <a class="btn btn-outline-danger" asp-area="" asp-controller="Account" asp-action="SignUp">Register</a>
+        </div>
+               
+           
+    </div>
 
-<li class="nav-item flex-grow-1">
-    <a class="btn btn-outline-info" asp-area="" asp-controller="Account" asp-action="login" asp-route-returnUrl="@Context.Request.Path">Login</a>
-    <a class="btn btn-outline-danger" asp-area="" asp-controller="Account" asp-action="SignUp">Register</a>
-</li>
 }
