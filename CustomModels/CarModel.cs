@@ -29,7 +29,7 @@ namespace Car_Rental_System.CustomModels
         public int DailyHirePrice { get; set; }
         [Required(ErrorMessage = "Please Enter Vehicle Added Time")]
         [Display(Name = "Added On")]
-        public DateTime AddedDate { get; set; }
+        public DateTime AddedDate { get; set; } = DateTime.Now;
         public IFormFile Carfile { get; set; }
     }
 }

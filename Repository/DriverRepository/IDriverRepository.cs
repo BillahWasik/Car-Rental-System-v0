@@ -5,7 +5,7 @@ namespace Car_Rental_System.Repository.DriverRepository
 {
     public interface IDriverRepository
     {
-        DriverModel AddNewDriver(DriverModel obj);
+        int AddNewDriver(DriverModel obj);
         DriverModel DeleteDriver(DriverModel obj);
         DriverModel EditDriver(DriverModel obj);
         List<DriverModel> GetAllDriver();

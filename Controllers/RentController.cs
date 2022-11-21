@@ -1,4 +1,5 @@
-﻿using Car_Rental_System.Data;
+﻿using Car_Rental_System.CustomModels;
+using Car_Rental_System.Data;
 using Car_Rental_System.Models;
 using Car_Rental_System.Repository.CarRepository;
 using Car_Rental_System.Repository.RentRepository;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Car_Rental_System.Controllers
 {
@@ -32,29 +34,23 @@ namespace Car_Rental_System.Controllers
         }
         public IActionResult Index()
         {
-           var data = _db.GetAllRent().ToList();
+           var data = _db.GetAllRent();
             return View(data);
         }
-        [Authorize]
         public IActionResult CreateBooking()
         {
-            ViewBag.Brand = new SelectList(DropdownDataCar(),"Id","Brand");
-            ViewBag.Model = new SelectList(DropdownDataCar(), "Id", "Model");
+            ViewBag.Car = new SelectList(DropdownDataCar(),"Id", "Brand");
             ViewBag.Driver = new SelectList(DropdownDataDriver(), "Id", "Driver_Name");
             return View();
         }
         [HttpPost]
-        public IActionResult CreateBooking(Rent obj)
+        public IActionResult CreateBooking(RentModel obj)
         {
             ViewBag.Brand = new SelectList(DropdownDataCar(), "Id", "Brand");
-            ViewBag.Brand = new SelectList(DropdownDataCar(), "Id", "Model");
+            ViewBag.Driver = new SelectList(DropdownDataDriver(), "Id", "Driver_Name");
             if (ModelState.IsValid) 
             {
-                if(obj != null) 
-                {
-                    _db.AddBooking(obj);
-                    return RedirectToAction(nameof(CreateBooking));
-                }
+                _db.AddBooking(obj);
               
             }
             return View();

@@ -1,8 +1,10 @@
-﻿using Car_Rental_System.Data;
+﻿using Car_Rental_System.CustomModels;
+using Car_Rental_System.Data;
 using Car_Rental_System.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Car_Rental_System.Repository.RentRepository
 {
@@ -14,61 +16,50 @@ namespace Car_Rental_System.Repository.RentRepository
             this._db = _db;
         }
 
-        public List<Rent> GetAllRent()
+        public List<RentModel> GetAllRent()
         {
-            var NewRent = new List<Rent>();
+            var NewRent = new List<RentModel>();
             var data = _db.Rents.Include(x => x.Car).Include(y => y.Driver).ToList();
             if (data?.Any() == true) 
             {
                 foreach (var obj in data)
                 {
-                    NewRent.Add(new Rent
+                    NewRent.Add(new RentModel
                     {
                         Id = obj.Id,
-                        PickUp = obj.PickUp,
-                        DropOff = obj.DropOff,
-                        PickUp_Date = obj.PickUp_Date,
-                        DropOff_Date = obj.DropOff_Date,
-                        TotalRun = obj.TotalRun,
-                        TotalAmount = obj.Rate * obj.TotalRun,
-                        Rate = obj.Rate,
-                        CarId = obj.CarId,
-                        DriverId = obj.DriverId,
                         CustomerName = obj.CustomerName,
                         Customer_Phone = obj.Customer_Phone,
-                        Brand = obj.Car.Brand,
-                        Model = obj.Car.Model,
+                        Rent_Date = obj.Rent_Date,
+                        Return_Date = obj.Return_Date,
+                        Status = obj.Status,
                         Driver_Name = obj.Driver.Driver_Name,
-                        
-                });
-                    return NewRent;
+                        Car_Name = obj.Car.Brand,
+                        CarId = obj.Car.Id,
+                        DriverId = obj.Driver.Id,
+                        TotalAmount = obj.TotalAmount,
+
+                    });
+                    
                 }
             }
-            return data;
+            return NewRent;
         }
-        public Rent AddBooking(Rent obj)
+        public int AddBooking(RentModel obj)
         {
-            var data = new Rent();
-
-            if(obj != null) 
+            var data = new Rent()
             {
-                data.Id = obj.Id;
-                data.PickUp = obj.PickUp;
-                data.DropOff = obj.DropOff;
-                data.PickUp_Date = obj.PickUp_Date;
-                data.DropOff_Date = obj.DropOff_Date;
-                data.TotalRun = obj.TotalRun;
-                data.TotalAmount = obj.TotalAmount;
-                data.Rate = obj.Rate;
-                data.CarId = obj.CarId;
-                data.DriverId = obj.DriverId;
-                data.CustomerName = obj.CustomerName;
-                data.Customer_Phone = obj.Customer_Phone;
-            }
-            _db.Add(data);
+                Id = obj.Id,
+                CustomerName = obj.CustomerName,
+                Customer_Phone = obj.Customer_Phone,
+                Rent_Date = obj.Rent_Date,
+                Return_Date = obj.Return_Date,
+                Status = obj.Status,
+                DriverId = obj.DriverId,
+                CarId = obj.CarId,
+            };
+            _db.Rents.Add(data);
             _db.SaveChanges();
-
-            return obj;
+            return obj.Id;
         }
     }
 }

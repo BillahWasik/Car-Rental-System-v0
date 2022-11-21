@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Rent>
+﻿@using Car_Rental_System.CustomModels
+@model IEnumerable<RentModel>
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,35 +16,33 @@
                     <table class="table table-bordered text-info text-center">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>PickUp</th>
-                                <th>DropOff</th>
-                                <th>Pickup Date</th>
-                                <th>DropOff Date</th>
-                                <th>Brand</th>
-                                <th>Model</th>
+                                <th>Customer Name</th>
+                                <th>Customer Phone</th>
+                                <th>Rent Date</th>
+                                <th>Return Date</th>
+                                <th>Status</th>
                                 <th>Driver</th>
+                                <th>Car</th>
                                 <th>Total Amount</th>
-                                @*<th>Actions</th>*@
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
                             {
                             <tr>
-                                <td>@item.Id</td>
-                                <td>@item.PickUp</td>
-                                <td>@item.DropOff</td>
-                                <td>@item.PickUp_Date</td>
-                                <td>@item.DropOff_Date</td>
-                                <td>@item.Brand</td>
-                                <td>@item.Model</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.Customer_Phone</td>
+                                <td>@item.Rent_Date</td>
+                                <td>@item.Return_Date</td>
+                                <td>@item.Status</td>
                                 <td>@item.Driver_Name</td>
+                                <td>@item.Car_Name</td>
                                 <td>@item.TotalAmount</td>
-                                @*<td>
-                                    <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
-                                    <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
-                                </td>*@
+                                <td>
+            <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
+            <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
+        </td>
                             </tr>
                             }
                         </tbody>

@@ -41,7 +41,7 @@ namespace Car_Rental_System.Repository.DriverRepository
             }
             return Driver;
         }
-        public DriverModel AddNewDriver(DriverModel obj)
+        public int AddNewDriver(DriverModel obj)
         {
             var NewDriver = new Driver()
             {
@@ -57,7 +57,7 @@ namespace Car_Rental_System.Repository.DriverRepository
 
             _db.Drivers.Add(NewDriver);
             _db.SaveChanges();
-            return obj;
+            return obj.Id;
         }
 
         public DriverModel EditDriver(DriverModel obj)
