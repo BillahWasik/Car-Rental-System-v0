@@ -1,0 +1,45 @@
+﻿@using Car_Rental_System.CustomModels
+@model IEnumerable<CustomerModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-3 p-3 shadow rounded">
+                <div class="d-flex justify-content-between mb-3 p-3">
+                    <h3 class="text-info">Customer List</h3>
+                    <a asp-controller="Customer" asp-action="Create" class="btn btn-outline-primary rounded">Customer Add</a>
+                </div>
+                <div class="p-3">
+                    <table class="table table-bordered text-info text-center">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.Address</td>
+                                    <td>
+                                        <a asp-route-id="@item.Id" asp-controller="customer" asp-action="edit" class="btn btn-outline-primary rounded">Edit</a>
+                                        <a asp-route-id="@item.Id" asp-controller="Rent" asp-action="delete" class="btn btn-outline-danger rounded">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -6,6 +6,11 @@
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20221122062926_addnewAttributeOnRent1.cs" />
+    <Compile Remove="Migrations\20221122062926_addnewAttributeOnRent1.Designer.cs" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.31" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.22" />
@@ -21,6 +26,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\Image\Car\" />
     <Folder Include="wwwroot\Image\Driver\" />
+    <Folder Include="wwwroot\Image\Customer\" />
   </ItemGroup>
 
 </Project>

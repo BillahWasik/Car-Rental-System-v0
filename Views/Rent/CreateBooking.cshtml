@@ -27,15 +27,11 @@
 
             <form method="post" asp-controller="rent" asp-action="createbooking">
                 <div class="form-group">
-                    <label asp-for="CustomerName"></label>
-                    <input asp-for="CustomerName" class="form-control" />
-                    <span asp-validation-for="CustomerName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Customer_Phone"></label>
-                    <input asp-for="Customer_Phone" class="form-control" />
-                    <span asp-validation-for="Customer_Phone" class="text-danger"></span>
-
+                    <label asp-for="CustomerId"></label>
+                    <select class="dropdown-item" asp-for="CustomerId" asp-items="ViewBag.Customer">
+                        <option value="">--Select the Customer--</option>
+                    </select>
+                    <span asp-validation-for="CarId" class="text-danger"></span>
 
                 </div>
                 <div class="form-group">

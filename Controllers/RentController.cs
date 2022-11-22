@@ -27,6 +27,11 @@ namespace Car_Rental_System.Controllers
            var data = _context.Cars.ToList();
             return data;
         }
+        private List<Customer> DropdownDataCustomer()
+        {
+            var data = _context.Customers.ToList();
+            return data;
+        }
         private List<Driver> DropdownDataDriver()
         {
             var data = _context.Drivers.ToList();
@@ -41,6 +46,7 @@ namespace Car_Rental_System.Controllers
         {
             ViewBag.Car = new SelectList(DropdownDataCar(),"Id", "Brand");
             ViewBag.Driver = new SelectList(DropdownDataDriver(), "Id", "Driver_Name");
+            ViewBag.Customer = new SelectList(DropdownDataCustomer(), "Id", "Name");
             return View();
         }
         [HttpPost]
@@ -48,6 +54,7 @@ namespace Car_Rental_System.Controllers
         {
             ViewBag.Brand = new SelectList(DropdownDataCar(), "Id", "Brand");
             ViewBag.Driver = new SelectList(DropdownDataDriver(), "Id", "Driver_Name");
+            ViewBag.Customer = new SelectList(DropdownDataCustomer(), "Id", "Name");
             if (ModelState.IsValid) 
             {
                 _db.AddBooking(obj);

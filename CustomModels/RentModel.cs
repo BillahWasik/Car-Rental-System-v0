@@ -12,10 +12,10 @@ namespace Car_Rental_System.CustomModels
         [Display(Name = "Return Date")]
         public DateTime Return_Date { get; set; }
         public int TotalAmount { get; set; } 
-        [Display(Name = "Customer Name")]
-        public string CustomerName { get; set; }
-        [Display(Name = "Phone")]
-        public string Customer_Phone { get; set; }
+        //[Display(Name = "Customer Name")]
+        public int CustomerId { get; set; }
+        //[Display(Name = "Phone")]
+        public Customer Customer { get; set; }
         [Display(Name = "Car")]
         public int CarId { get; set; }
         public Car Car { get; set; }
@@ -25,6 +25,8 @@ namespace Car_Rental_System.CustomModels
         public string Status { get; set; }
         public string Driver_Name { get; set; }
         public string Car_Name { get; set; }
+        public string Customer_Name { get; set; }
+        public string Customer_Phone { get; set; }
 
     }
 }

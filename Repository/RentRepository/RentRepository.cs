@@ -19,7 +19,7 @@ namespace Car_Rental_System.Repository.RentRepository
         public List<RentModel> GetAllRent()
         {
             var NewRent = new List<RentModel>();
-            var data = _db.Rents.Include(x => x.Car).Include(y => y.Driver).ToList();
+            var data = _db.Rents.Include(x => x.Car).Include(y => y.Driver).Include(x=> x.Customer).ToList();
             if (data?.Any() == true) 
             {
                 foreach (var obj in data)
@@ -27,8 +27,6 @@ namespace Car_Rental_System.Repository.RentRepository
                     NewRent.Add(new RentModel
                     {
                         Id = obj.Id,
-                        CustomerName = obj.CustomerName,
-                        Customer_Phone = obj.Customer_Phone,
                         Rent_Date = obj.Rent_Date,
                         Return_Date = obj.Return_Date,
                         Status = obj.Status,
@@ -37,6 +35,9 @@ namespace Car_Rental_System.Repository.RentRepository
                         CarId = obj.Car.Id,
                         DriverId = obj.Driver.Id,
                         TotalAmount = obj.TotalAmount,
+                        CustomerId = obj.Customer.Id,
+                        Customer_Name = obj.Customer.Name,
+                        Customer_Phone = obj.Customer.Phone,
 
                     });
                     
@@ -49,13 +50,12 @@ namespace Car_Rental_System.Repository.RentRepository
             var data = new Rent()
             {
                 Id = obj.Id,
-                CustomerName = obj.CustomerName,
-                Customer_Phone = obj.Customer_Phone,
                 Rent_Date = obj.Rent_Date,
                 Return_Date = obj.Return_Date,
-                Status = obj.Status,
                 DriverId = obj.DriverId,
                 CarId = obj.CarId,
+                Status = obj.Status,
+                CustomerId = obj.CustomerId,
             };
             _db.Rents.Add(data);
             _db.SaveChanges();

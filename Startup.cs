@@ -3,6 +3,7 @@ using Car_Rental_System.IdentityHelpers;
 using Car_Rental_System.IdentityModel;
 using Car_Rental_System.Repository.AccountRepository;
 using Car_Rental_System.Repository.CarRepository;
+using Car_Rental_System.Repository.CustomerRepository;
 using Car_Rental_System.Repository.DriverRepository;
 using Car_Rental_System.Repository.RentRepository;
 using Car_Rental_System.Service;
@@ -41,6 +42,7 @@ namespace Car_Rental_System
             services.AddIdentity<CustomizeUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddScoped<IUserClaimsPrincipalFactory<CustomizeUser>, ApplicationUserClaimPrincipalFactory>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
 
             services.Configure<IdentityOptions>(options =>
             {
